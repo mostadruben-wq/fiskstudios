@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiskstudios – Wir lieben Design und Video</title>
+<meta name="description" content="Fiskstudios ist ein Kollektiv aus Stuttgart für Branding, Film, Design und Fotografie.">
+<link rel="icon" type="image/svg+xml" href="assets/img/bildmarke.svg">
+<link rel="preload" href="assets/fonts/DonutHole-Regular.otf" as="font" type="font/otf" crossorigin>
+<style>
+@font-face{font-family:"Donut Hole";src:url(assets/fonts/DonutHole-Regular.otf) format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Sk Modernist Mono";src:url(assets/fonts/Sk-Modernist-Mono.otf) format("opentype");font-weight:400;font-style:normal;font-display:swap}
+html{scroll-behavior:smooth}
+body{margin:0;background:#232325}
+*{box-sizing:border-box}
+img{max-width:100%}
+a{color:#ffffff;text-decoration:none}
+a:hover{color:#ea3323}
+a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
+.fs-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.fs-service{display:grid;grid-template-columns:48px minmax(0,1fr) minmax(0,1fr);column-gap:32px;align-items:start}
+@keyframes fsUp{from{transform:translateY(110%)}to{transform:none}}
+@keyframes fsBite{0%,100%{transform:none}20%{transform:translateY(0.12em) rotate(-8deg)}40%{transform:translateY(-0.06em) rotate(6deg)}60%{transform:translateY(0.08em) rotate(-4deg)}80%{transform:none}}
+@keyframes fsPop{0%{transform:scale(1)}40%{transform:scale(1.6)}100%{transform:scale(1)}}
+@keyframes fsFadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fsZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes fsSlideIn{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+.fs-line{display:block;overflow:hidden;padding-top:0.12em;margin-top:-0.12em}
+.fs-in{display:inline-block}
+.fs-bite{display:inline-block;transform-origin:50% 0}
+.fs-hero:hover .fs-in{animation:fsUp 0.9s cubic-bezier(.2,.8,.2,1) both}
+.fs-hero:hover .fs-bite{animation:fsBite 0.9s ease-in-out 1s both}
+.fs-hero:hover .fs-fadeup{animation:fsFadeUp 0.8s cubic-bezier(.2,.8,.2,1) both}
+.fs-hero:hover .fs-zoom{animation:fsZoom 2.4s cubic-bezier(.2,.8,.2,1) both}
+.fs-hero:hover .fs-slidein{animation:fsSlideIn 0.8s cubic-bezier(.2,.8,.2,1) both}
+.fs-headb{display:grid;grid-template-columns:360px minmax(0,1fr);gap:48px;align-items:end}
+.fs-list{list-style:none;margin:0;padding:0;font-family:"Donut Hole",Impact,sans-serif;font-weight:400;font-size:clamp(56px,10.3vw,148px);line-height:0.84}
+.fs-item{display:flex;justify-content:flex-end;align-items:flex-start;gap:16px;color:inherit}
+.fs-num{display:inline-block;font-family:"Sk Modernist Mono",ui-monospace,monospace;font-size:18px;line-height:1;color:#ea3323;padding-top:0.5em}
+.fs-svc{display:inline-block;color:transparent;-webkit-text-stroke:1.5px #c1c1c1;transition:color 0.35s ease,-webkit-text-stroke-color 0.35s ease,transform 0.45s cubic-bezier(.2,.8,.2,1)}
+.fs-item:hover .fs-svc,.fs-item:focus-visible .fs-svc{color:#ea3323;-webkit-text-stroke-color:#ea3323;transform:translateX(-24px)}
+.fs-item:hover .fs-num,.fs-item:focus-visible .fs-num{animation:fsPop 0.5s ease both}
+.fs-item:hover{color:inherit}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.fs-hero:hover .fs-in,.fs-hero:hover .fs-bite,.fs-hero:hover .fs-fadeup,.fs-hero:hover .fs-zoom,.fs-hero:hover .fs-slidein,.fs-item:hover .fs-num{animation:none}.fs-svc{transition:color 0.35s ease}.fs-item:hover .fs-svc{transform:none}}
+@media (max-width:860px){
+  .fs-grid2{grid-template-columns:minmax(0,1fr)}
+  .fs-service{grid-template-columns:40px minmax(0,1fr)}
+  .fs-service .fs-tags{grid-column:2}
+  .fs-nav-links{display:none !important}
+  .fs-headb{grid-template-columns:minmax(0,1fr)}
+  .fs-csk{flex-direction:column !important}
+  .fs-csk img{width:100% !important;height:360px !important}
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; background: #232325; color: #c1c1c1; font-family: 'Sk Modernist Mono', ui-monospace, monospace">
+
+  <!-- Header -->
+  <header style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap">
+      <a href="#start" style="display: flex; flex-direction: column; gap: 4px" aria-label="Fiskstudios Startseite">
+        <img src="assets/img/wortmarke.svg" alt="Fiskstudios" width="236" height="41" style="width: 236px; height: auto; display: block">
+        <span style="font-family: 'Donut Hole', Impact, sans-serif; font-size: 15px; line-height: 1; color: #ffffff; letter-spacing: 0.01em">WIR LIEBEN DESIGN UND VIDEO</span>
+      </a>
+      <nav class="fs-nav-links" aria-label="Hauptnavigation" style="display: flex; gap: 56px; padding-top: 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.02em">
+        <a href="#start">START</a>
+        <a href="#arbeiten">ARBEITEN</a>
+        <a href="#kontakt">KONTAKT</a>
+      </nav>
+      <a href="#kontakt" style="display: inline-flex; align-items: center; gap: 12px; min-height: 28px; margin-top: 4px; padding: 4px 16px; border-radius: 999px; background: #c1c1c1; color: #232325; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 500">LET'S WORK
+        <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="#ea3323" stroke-width="1.5"><path d="M2 10 L10 2 M4 2 H10 V8"/></svg>
+      </a>
+    </div>
+    <div class="fs-headb">
+      <div style="display: flex; flex-direction: column; gap: 16px; padding-bottom: 12px">
+        <h1 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 28px; line-height: 1; color: #ffffff">WIR LIEBEN DESIGN UND VIDEO.</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 20px; color: #c1c1c1">Fiskstudios ist ein Kollektiv aus Stuttgart. Vier Disziplinen, ein Netz.</p>
+      </div>
+      <ul class="fs-list" style="text-align: right">
+        <li><a class="fs-item" href="#services"><span class="fs-num">01</span><span class="fs-svc">BRANDING</span></a></li>
+        <li><a class="fs-item" href="#services"><span class="fs-num">02</span><span class="fs-svc">FILM</span></a></li>
+        <li><a class="fs-item" href="#services"><span class="fs-num">03</span><span class="fs-svc">DESIGN</span></a></li>
+        <li><a class="fs-item" href="#services"><span class="fs-num">04</span><span class="fs-svc">PHOTOGRAPHY</span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="start" class="fs-grid2 fs-hero" style="grid-template-columns: 41fr 59fr; min-height: 707px; background: #310502">
+    <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 48px; padding: 64px 48px 48px">
+      <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: clamp(64px, 9.6vw, 140px); line-height: 0.8; color: #ea3323"><span class="fs-line"><span class="fs-in" style="animation-delay: 0.1s">FISHING</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.25s">IS <span class="fs-bite" style="font-size: 0.42em; vertical-align: 0.95em; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px">NOT</span> FOR</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.4s">ANYBODY.</span></span></h2>
+      <p class="fs-fadeup" style="animation-delay: 1s; margin: 0; max-width: 420px; font-size: 16px; line-height: 18px; color: #ffffff; text-transform: uppercase">Nach der richtigen Zielgruppe suchen ist manchmal wie Angeln. Wir wollen dir helfen, sie zu catchen.</p>
+    </div>
+    <div style="position: relative; background: #c1c1c1; min-height: 420px; overflow: hidden">
+      <img class="fs-zoom" src="assets/img/lilo-clean.jpg" alt="Verpackungsdesign für Lilo" width="1444" height="1208" style="width: 100%; height: 100%; object-fit: cover; display: block">
+      <p class="fs-slidein" style="animation-delay: 1.3s; position: absolute; left: 60.8%; top: 73%; margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-size: clamp(16px, 2.3vw, 34px); line-height: 0.95; color: #ffffff; white-space: nowrap">PACKAGING DESIGN<br>SOCIALS <span style="font-size: 0.4em; vertical-align: 0.9em; text-decoration: underline">AND</span> PRINT DESIGN</p>
+    </div>
+  </section>
+
+  <!-- Projekt CSK -->
+  <section id="arbeiten" class="fs-csk" style="display: flex; align-items: center; min-height: 742px; background: #0d0f0e">
+    <img src="assets/img/csk.jpg" alt="CSK – Fußballspieler bei Nacht mit dem CSK-Wappen" width="1620" height="1267" loading="lazy" style="width: 66%; height: 742px; object-fit: cover; display: block">
+    <p style="margin: 0; padding: 48px; font-family: 'Donut Hole', Impact, sans-serif; font-size: clamp(22px, 2.2vw, 30px); line-height: 1; color: #ea3323">CORPORATE DESIGN &amp; WEBDESIGN<br>PHOTOGRAPHY &amp; SOCIALS</p>
+  </section>
+
+  <!-- Kunden -->
+  <section aria-label="Kunden" style="background: #d3d3d3">
+    <img src="assets/img/kunden.jpg" alt="Kunden: CSK, Doppio, Grooming Studios, Lorinser, Tennis Club Weinstadt, wildly, HOLZ." width="2460" height="216" loading="lazy" style="width: 100%; height: auto; display: block">
+  </section>
+
+  <!-- Die Fische -->
+  <section style="background: #310502; padding: 64px 48px 32px; border-bottom-left-radius: 160px">
+    <h2 style="margin: 0 0 40px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">DIE FISCHE</h2>
+    <div class="fs-grid2" style="gap: 48px">
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
+        <img src="assets/img/team-ruben.jpg" alt="Ruben mit einem gefangenen Fisch am Wasser" width="592" height="592" loading="lazy" style="width: 346px; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95; color: #ffffff">ART DIRECTION</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 16px; color: #ea3323">GRAFIKDESIGN &amp; WEBDESIGN</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
+        <img src="assets/img/team-luca.jpg" alt="Luca mit einem großen Karpfen" width="592" height="592" loading="lazy" style="width: 346px; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 24px; display: block">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95; color: #ffffff">DIRECTOR OF<br>PHOTOGRAPHY</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 16px; color: #ea3323">PHOTOGRAPHY &amp; VIDEOGRAPHY</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Über uns -->
+  <section class="fs-grid2" style="gap: 48px; padding: 64px 48px 32px">
+    <div>
+      <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">ÜBER RUBEN</h3>
+      <p style="margin: 0; max-width: 560px; font-size: 18px; line-height: 20px; color: #c1c1c1">Hej, what up?<br>Ich bin Ruben und ich bin leidenschaftlich gern Grafiker. Corporate Designs, die aus der Masse hervorstechen, sind meine liebsten. Ich würde vermutlich sagen, „Reasoned Simplicity“ ist genau meine Ecke. Wir freuen uns schon drauf, zusammen mit euch geile Projekte zu schmeißen!</p>
+    </div>
+    <div>
+      <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">ÜBER LUCA</h3>
+      <p style="margin: 0; max-width: 560px; font-size: 18px; line-height: 20px; color: #c1c1c1">Ich bin Luca,<br>Videografie und Fotografie lassen mein Herz höher schlagen. Egal, ob’s Produktionen am professionellen Set für die Industrie sind oder Porträts für euren Firmenauftritt. Mit Liebe fürs Detail finden wir auch hier genau den richtigen Weg für euch und euren professionellen Auftritt. Lass uns starten!</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" style="padding: 96px 48px 112px; display: flex; flex-direction: column; gap: 56px">
+    <div>
+      <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">SERVICES</h2>
+      <p style="margin: 8px 0 0; font-size: 18px; line-height: 20px; color: #c1c1c1">WAS WIR TUN</p>
+    </div>
+
+    <div class="fs-service">
+      <span style="font-size: 18px; line-height: 40px; color: #ea3323">01</span>
+      <div>
+        <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">BRANDING</h3>
+        <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Markenidentität, Logodesign, Brand Strategy, Corporate Design. Wir entwickeln Marken, die im Gedächtnis bleiben.</p>
+      </div>
+      <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">STRATEGIE</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">VISUALS</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">GUIDELINES</span>
+      </div>
+    </div>
+
+    <div class="fs-service">
+      <span style="font-size: 18px; line-height: 40px; color: #ea3323">02</span>
+      <div>
+        <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">FILM</h3>
+        <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Imagefilme, Dokumentationen, Commercials. Von der Idee bis zum fertigen Cut.</p>
+      </div>
+      <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">KONZEPT</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">PRODUKTION</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">POST-P</span>
+      </div>
+    </div>
+
+    <div class="fs-service">
+      <span style="font-size: 18px; line-height: 40px; color: #ea3323">03</span>
+      <div>
+        <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">DESIGN</h3>
+        <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Web, App, Print, Packaging. Visuelles Design, das Grenzen sprengt.</p>
+      </div>
+      <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">DIGITAL</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">PRINT</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">WEBDESIGN</span>
+      </div>
+    </div>
+
+    <div class="fs-service">
+      <span style="font-size: 18px; line-height: 40px; color: #ea3323">04</span>
+      <div>
+        <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">PHOTOGRAPHY</h3>
+        <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Editorial, Kampagnen, Porträts, Produktfotografie. Bilder, die Geschichten erzählen.</p>
+      </div>
+      <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">EDITORIAL</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">COMMERCIAL</span>
+        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">ARTDIRECTION</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <footer id="kontakt" style="background: #310502; padding: 64px 48px 240px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px; align-items: end">
+      <div>
+        <h2 style="margin: 0 0 8px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">LASST UNS REDEN.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 20px; color: #ffffff">Bereit für etwas Außergewöhnliches?<br>Wir sind es auch.<br>Schreib uns – oder komm vorbei.</p>
+      </div>
+      <address style="font-style: normal; font-size: 18px; line-height: 20px; color: #ffffff">
+        FISKSTUDIOS KOLLEKTIV<br><br>Waiblinger Straße 19,<br>70372 Stuttgart
+      </address>
+      <div>
+        <a href="mailto:ruben@fiskstudios.de" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 64px; border: 1px solid #ea3323; border-radius: 999px; color: #ffffff; font-size: 18px; line-height: 20px">Projekt starten</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
