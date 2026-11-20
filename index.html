@@ -93,6 +93,38 @@ a:hover{color:#ea3323}
   .fs-track,.fs-cases{animation:none}#arbeiten{overflow-x:auto}
   .fs-case-media img{transition:none}.fs-case:hover .fs-case-media img{transform:none}
 }
+.fs-tags{position:relative;padding-bottom:76px}
+.fs-tag{min-width:136px;padding:8px 12px;border:1px solid #ea3323;color:#ea3323;font-size:18px;line-height:20px;text-align:center;cursor:default;transition:background-color 0.25s ease,color 0.25s ease}
+.fs-tag:hover,.fs-tag:focus-visible{background:#ea3323;color:#232325;outline:none}
+.fs-info{position:absolute;left:0;bottom:0;width:100%;max-width:520px;font-size:14px;line-height:18px;color:#ffffff;text-align:left;opacity:0;transform:translateY(8px);transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none}
+.fs-tag:hover .fs-info,.fs-tag:focus .fs-info{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.fs-info{transition:none;transform:none}}
+.fs-school{position:absolute !important;inset:0;z-index:0 !important;overflow:hidden;pointer-events:none}
+.fs-head > div{pointer-events:none}
+.fs-head a,.fs-head h1,.fs-head p,.fs-head li{pointer-events:auto}
+.fs-swim{position:absolute;left:0;top:0;will-change:transform}
+.fs-dart{display:block;pointer-events:auto;cursor:default;transition:transform 7s cubic-bezier(.3,0,.3,1) 0.6s}
+.fs-bob{display:block;animation:fsBob 3.2s ease-in-out infinite}
+.fs-fish{display:block;height:auto;user-select:none;-webkit-user-drag:none}
+.fs-right .fs-fish{transform:scaleX(-1)}
+.fs-left .fs-dart:hover{transform:translateX(-48vw);transition:transform 0.7s cubic-bezier(.15,.85,.25,1)}
+.fs-right .fs-dart:hover{transform:translateX(48vw);transition:transform 0.7s cubic-bezier(.15,.85,.25,1)}
+@keyframes fsSwimL{from{transform:translateX(110vw)}to{transform:translateX(-30vw)}}
+@keyframes fsSwimR{from{transform:translateX(-30vw)}to{transform:translateX(110vw)}}
+@keyframes fsBob{0%,100%{transform:translateY(0) rotate(0deg)}30%{transform:translateY(-6px) rotate(-1.5deg)}70%{transform:translateY(5px) rotate(1.2deg)}}
+.fs-swim1{top:13%;animation:fsSwimL 48s linear -6s infinite}
+.fs-swim1 .fs-fish{width:210px}
+.fs-swim2{top:27%;animation:fsSwimR 58s linear -30s infinite}
+.fs-swim2 .fs-fish{width:250px}
+.fs-swim3{top:42%;animation:fsSwimL 40s linear -22s infinite}
+.fs-swim3 .fs-fish{width:190px}
+.fs-swim4{top:57%;animation:fsSwimR 66s linear -12s infinite}
+.fs-swim4 .fs-fish{width:300px}
+.fs-swim2 .fs-bob{animation-delay:-1.1s}
+.fs-swim3 .fs-bob{animation-delay:-2s}
+.fs-swim4 .fs-bob{animation-delay:-0.5s}
+@media (max-width:860px){.fs-swim .fs-fish{width:130px !important}}
+@media (prefers-reduced-motion: reduce){.fs-swim,.fs-bob{animation:none}.fs-swim1{transform:translateX(60vw)}.fs-swim2{transform:translateX(8vw)}.fs-swim3{transform:translateX(40vw)}.fs-swim4{transform:translateX(70vw)}.fs-dart,.fs-left .fs-dart:hover,.fs-right .fs-dart:hover{transform:none;transition:none}}
 @media (max-width:860px){
   .fs-grid2{grid-template-columns:minmax(0,1fr)}
   .fs-service{grid-template-columns:40px minmax(0,1fr)}
@@ -110,7 +142,13 @@ a:hover{color:#ea3323}
 <body>
 <div style="width: 100%; background: #232325; color: #c1c1c1; font-family: 'Sk Modernist Mono', 'DM Mono', ui-monospace, monospace">
 
-  <header class="fs-grain" style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
+  <header class="fs-grain fs-head" style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
+    <div class="fs-school" aria-hidden="true">
+      <div class="fs-swim fs-swim1 fs-left"><span class="fs-dart"><span class="fs-bob"><img class="fs-fish" src="assets/img/fish/fish1.png" alt=""></span></span></div>
+      <div class="fs-swim fs-swim2 fs-right"><span class="fs-dart"><span class="fs-bob"><img class="fs-fish" src="assets/img/fish/fish2.png" alt=""></span></span></div>
+      <div class="fs-swim fs-swim3 fs-left"><span class="fs-dart"><span class="fs-bob"><img class="fs-fish" src="assets/img/fish/fish3.png" alt=""></span></span></div>
+      <div class="fs-swim fs-swim4 fs-right"><span class="fs-dart"><span class="fs-bob"><img class="fs-fish" src="assets/img/fish/fish4.png" alt=""></span></span></div>
+    </div>
     <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap">
       <a href="#start" style="display: flex; flex-direction: column; gap: 4px" aria-label="Fiskstudios Startseite">
         <img src="assets/img/wortmarke.svg" alt="Fiskstudios" style="width: 236px; height: auto; display: block">
@@ -408,7 +446,7 @@ a:hover{color:#ea3323}
 
   <section aria-label="Kunden" class="fs-marquee fs-grain" style="background: #d3d3d3">
     <div class="fs-track">
-      <img src="assets/img/kunden.jpg" alt="Kunden: CSK, Doppio, Grooming Studios, Lorinser, Tennis Club Weinstadt, wildly, HOLZ.">
+      <img src="assets/img/kunden.jpg" alt="Kunden: CSK, Doppio, Grooming Studios, Lorinser, Tennis Club Weinstadt, wildly, HOLZ., Meisterfenster, Seven Slices">
       <img src="assets/img/kunden.jpg" alt="" aria-hidden="true">
     </div>
   </section>
@@ -457,9 +495,9 @@ a:hover{color:#ea3323}
         <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Markenidentität, Logodesign, Brand Strategy, Corporate Design. Wir entwickeln Marken, die im Gedächtnis bleiben.</p>
       </div>
       <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">STRATEGIE</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">VISUALS</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">GUIDELINES</span>
+        <span class="fs-tag" tabindex="0">STRATEGIE<span class="fs-info">Bevor wir gestalten, hören wir zu: Wer seid ihr, wen wollt ihr erreichen, was macht euch anders? Daraus entsteht die Haltung, auf der alles Weitere aufbaut.</span></span>
+        <span class="fs-tag" tabindex="0">VISUALS<span class="fs-info">Logo, Farben, Typografie und Bildsprache – wir entwickeln ein visuelles System, das man sofort wiedererkennt.</span></span>
+        <span class="fs-tag" tabindex="0">GUIDELINES<span class="fs-info">Ein Brandbook, das im Alltag funktioniert: klare Regeln und Vorlagen, damit eure Marke überall gleich stark auftritt.</span></span>
       </div>
     </div>
 
@@ -470,9 +508,9 @@ a:hover{color:#ea3323}
         <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Imagefilme, Dokumentationen, Commercials. Von der Idee bis zum fertigen Cut.</p>
       </div>
       <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">KONZEPT</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">PRODUKTION</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">POST-P</span>
+        <span class="fs-tag" tabindex="0">KONZEPT<span class="fs-info">Idee, Storyboard und Drehplan: Wir legen fest, welche Geschichte erzählt wird und wie sie aussehen soll.</span></span>
+        <span class="fs-tag" tabindex="0">PRODUKTION<span class="fs-info">Der Drehtag mit Kamera, Licht und Ton – am Set, bei euch im Betrieb oder draußen vor Ort.</span></span>
+        <span class="fs-tag" tabindex="0">POST-P<span class="fs-info">Schnitt, Color Grading, Sounddesign und Grafiken: In der Postproduktion bekommt der Film seinen Rhythmus und seinen Look.</span></span>
       </div>
     </div>
 
@@ -483,9 +521,9 @@ a:hover{color:#ea3323}
         <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Web, App, Print, Packaging. Visuelles Design, das Grenzen sprengt.</p>
       </div>
       <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">DIGITAL</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">PRINT</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">WEBDESIGN</span>
+        <span class="fs-tag" tabindex="0">DIGITAL<span class="fs-info">Social-Media-Posts, Ads und Präsentationen, die im Feed auffallen und trotzdem zur Marke passen.</span></span>
+        <span class="fs-tag" tabindex="0">PRINT<span class="fs-info">Plakate, Flyer, Visitenkarten und Verpackungen – mit Gefühl für Papier, Farbe und Veredelung.</span></span>
+        <span class="fs-tag" tabindex="0">WEBDESIGN<span class="fs-info">Websites, die gut aussehen und einfach funktionieren: vom ersten Entwurf bis zur fertigen Seite.</span></span>
       </div>
     </div>
 
@@ -496,9 +534,9 @@ a:hover{color:#ea3323}
         <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Editorial, Kampagnen, Portraits, Produktfotografie. Bilder, die Geschichten erzählen.</p>
       </div>
       <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">EDITORIAL</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">COMMERCIAL</span>
-        <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">ARTDIRECTION</span>
+        <span class="fs-tag" tabindex="0">EDITORIAL<span class="fs-info">Reportagen und Porträts mit Charakter – Bilder, die eure Geschichte ehrlich erzählen.</span></span>
+        <span class="fs-tag" tabindex="0">COMMERCIAL<span class="fs-info">Produkt-, Food- und Kampagnenfotos für Website, Social Media und Print.</span></span>
+        <span class="fs-tag" tabindex="0">ARTDIRECTION<span class="fs-info">Wir planen Look, Location, Styling und Licht, damit jedes Shooting zum Gesamtauftritt passt.</span></span>
       </div>
     </div>
   </section>
@@ -516,10 +554,13 @@ a:hover{color:#ea3323}
         <a href="mailto:hello@rubenmostad.com" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 64px; border: 1px solid #ea3323; border-radius: 999px; color: #ffffff; font-size: 18px; line-height: 20px">Projekt starten</a>
       </div>
     </div>
-    <nav aria-label="Rechtliches" style="display: flex; gap: 32px; margin-top: 96px; font-size: 13px; line-height: 16px">
-      <a href="impressum.html">IMPRESSUM</a>
-      <a href="datenschutz.html">DATENSCHUTZ</a>
-    </nav>
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 96px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.25); font-size: 16px; line-height: 20px">
+      <span style="color: #c1c1c1">© 2026 FISKSTUDIOS</span>
+      <nav aria-label="Rechtliches" style="display: flex; gap: 40px">
+        <a href="impressum.html" style="color: #ffffff">IMPRESSUM</a>
+        <a href="datenschutz.html" style="color: #ffffff">DATENSCHUTZ</a>
+      </nav>
+    </div>
   </footer>
 
 </div>
