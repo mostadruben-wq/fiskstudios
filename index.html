@@ -158,13 +158,40 @@ a:hover{color:#ea3323}
   .fs-grid2{grid-template-columns:minmax(0,1fr)}
   .fs-service{grid-template-columns:40px minmax(0,1fr)}
   .fs-service .fs-tags{grid-column:2}
-  .fs-nav-links{display:none !important}
   .fs-headb{grid-template-columns:minmax(0,1fr)}
   .fs-case{width:300px}
   .fs-csk{flex-direction:column !important}
   .fs-csk img{width:100% !important;height:360px !important}
   #start{grid-template-columns:minmax(0,1fr) !important}
   #start h2{height:auto !important}
+}
+@media (max-width:860px){
+  header.fs-grain{min-height:0 !important;padding:28px 24px 40px !important;gap:56px !important}
+  .fs-nav-links{display:flex !important;order:3;width:100%;gap:28px !important;padding-top:0 !important}
+  .fs-nib{left:-24px !important;top:-12px !important}
+  .fs-crumb{margin-left:-24px;margin-top:-12px}
+  #start > div:first-child{padding:48px 24px 40px !important;gap:32px !important}
+  .fs-stage{min-height:300px !important}
+  .fs-csk{position:relative;min-height:0 !important;background:transparent !important}
+  .fs-csk img{height:440px !important;object-position:22% center}
+  .fs-csk p{position:absolute;left:0;bottom:0;padding:24px 24px 28px !important;text-shadow:0 1px 12px rgba(0,0,0,0.6)}
+  #arbeiten{padding:64px 24px 72px !important;gap:32px !important}
+  .fs-cases{margin:0 -24px !important}
+  #arbeiten h2,#services h2,.fs-team h2,#kontakt h2{font-size:44px !important}
+  .fs-track img{height:80px}
+  .fs-team{padding:48px 24px 40px !important;border-bottom-left-radius:80px !important}
+  .fs-team h2{margin-bottom:28px !important}
+  .fs-team img{width:100% !important;max-width:420px !important}
+  .fs-about{padding:48px 24px 24px !important;gap:40px !important}
+  #services{padding:64px 24px 48px !important;gap:40px !important}
+  .fs-service{grid-template-columns:32px minmax(0,1fr) !important;column-gap:16px !important}
+  .fs-service h3{font-size:32px !important}
+  .fs-service .fs-tags{grid-column:1 / -1 !important;padding-top:24px !important;gap:12px !important;padding-bottom:68px}
+  .fs-tag{min-width:0;flex:1 1 auto;font-size:15px}
+  .fs-list{font-size:clamp(40px,13vw,100px) !important}
+  .fs-item{gap:12px !important}
+  #kontakt{padding:48px 24px 40px !important}
+  #kontakt a[href^="mailto"]{padding:8px 32px !important;white-space:nowrap}
 }
 </style>
 </head>
@@ -481,18 +508,18 @@ a:hover{color:#ea3323}
     </div>
   </section>
 
-  <section style="background: #310502; padding: 64px 48px 32px; border-bottom-left-radius: 160px">
+  <section class="fs-team" style="background: #310502; padding: 64px 48px 32px; border-bottom-left-radius: 160px">
     <h2 style="margin: 0 0 40px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">DIE FISCHE</h2>
     <div class="fs-grid2" style="gap: 48px">
       <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
-        <img src="assets/img/team-ruben.jpg" alt="Ruben mit einem gefangenen Fisch am Wasser" loading="lazy" style="width: 346px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
+        <img src="assets/img/team-ruben.jpg" alt="Ruben mit einem gefangenen Fisch am Wasser" style="width: 346px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
         <div style="display: flex; flex-direction: column; gap: 8px">
           <h3 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95; color: #ffffff">ART DIRECTION</h3>
           <p style="margin: 0; font-size: 13px; line-height: 16px; color: #ea3323">GRAFIKDESIGN &amp; WEBDESIGN</p>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
-        <img src="assets/img/team-luca.jpg" alt="Luca mit einem großen Karpfen" loading="lazy" style="width: 346px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
+        <img src="assets/img/team-luca.jpg" alt="Luca mit einem großen Karpfen" style="width: 346px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
         <div style="display: flex; flex-direction: column; gap: 8px">
           <h3 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95; color: #ffffff">DIRECTOR OF<br>PHOTOGRAPHY</h3>
           <p style="margin: 0; font-size: 13px; line-height: 16px; color: #ea3323">PHOTOGRAPHY &amp; VIDEOGRAPHY</p>
@@ -501,7 +528,7 @@ a:hover{color:#ea3323}
     </div>
   </section>
 
-  <section class="fs-grid2 fs-grain" style="gap: 48px; padding: 64px 48px 32px">
+  <section class="fs-grid2 fs-grain fs-about" style="gap: 48px; padding: 64px 48px 32px">
     <div>
       <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">ÜBER RUBEN</h3>
       <p style="margin: 0; max-width: 560px; font-size: 18px; line-height: 20px; color: #c1c1c1">Hej, what up?<br>Ich bin Ruben und ich bin leidenschaftlich gern Grafiker. Corporate Designs, die aus der Masse hervorstechen, sind meine liebsten. Ich würde vermutlich sagen, „Reasoned Simplicity“ ist genau meine Ecke. Wir freuen uns schon drauf, zusammen mit euch geile Projekte zu schmeißen!</p>
