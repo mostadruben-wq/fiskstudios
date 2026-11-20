@@ -50,6 +50,34 @@ a:hover{color:#ea3323}
 .fs-hero:hover .fs-fadeup{animation:fsFadeUp 0.8s cubic-bezier(.2,.8,.2,1) both}
 .fs-hero:hover .fs-zoom{animation:fsZoom 2.4s cubic-bezier(.2,.8,.2,1) both}
 .fs-hero:hover .fs-slidein{animation:fsSlideIn 0.8s cubic-bezier(.2,.8,.2,1) both}
+.fs-stage{position:relative;background:#c1c1c1;min-height:420px;overflow:hidden}
+.fs-frame{position:absolute;left:13.4%;right:13.4%;top:13.4%;bottom:14.7%;overflow:hidden;background:#9a9a9a}
+.fs-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;animation:fsCycle 32s linear infinite both}
+.fs-label{position:absolute;left:13.4%;bottom:2.6%;margin:0;font-family:"Donut Hole",Impact,sans-serif;font-size:clamp(16px,2.3vw,34px);line-height:0.95;color:#ea3323;white-space:nowrap;opacity:0;animation:fsCycle 32s linear infinite both}
+.fs-label small{display:block;font-size:0.62em;line-height:1.1;color:#ffffff}
+@keyframes fsCycle{0%{opacity:0}2%{opacity:1}12.5%{opacity:1}14.5%{opacity:0}100%{opacity:0}}
+.fs-slide:nth-child(2),.fs-label:nth-child(2){animation-delay:4s}
+.fs-slide:nth-child(3),.fs-label:nth-child(3){animation-delay:8s}
+.fs-slide:nth-child(4),.fs-label:nth-child(4){animation-delay:12s}
+.fs-slide:nth-child(5),.fs-label:nth-child(5){animation-delay:16s}
+.fs-slide:nth-child(6),.fs-label:nth-child(6){animation-delay:20s}
+.fs-slide:nth-child(7),.fs-label:nth-child(7){animation-delay:24s}
+.fs-slide:nth-child(8),.fs-label:nth-child(8){animation-delay:28s}
+.fs-dot{position:absolute;z-index:2;width:9.1%;aspect-ratio:1;margin:-4.55% 0 0 -4.55%;border-radius:50%;background:#ea3323;transition:transform 0.5s cubic-bezier(.2,.8,.2,1)}
+.fs-dot1{left:36.6%;top:11.8%}
+.fs-dot2{left:92.6%;top:10.2%}
+.fs-dot3{left:65%;top:53.2%}
+.fs-dot4{left:11.3%;top:74.9%}
+@keyframes fsDotBounce{0%,100%{transform:translateY(0) scale(1,1)}35%{transform:translateY(-55%) scale(0.95,1.05)}60%{transform:translateY(0) scale(1.12,0.88)}75%{transform:translateY(-12%) scale(1,1)}}
+@keyframes fsDotOrbit{0%,100%{transform:translate(0,0)}25%{transform:translate(-35%,30%)}50%{transform:translate(0,60%)}75%{transform:translate(35%,30%)}}
+@keyframes fsDotPulse{0%,100%{transform:scale(1)}40%{transform:scale(1.35)}70%{transform:scale(0.9)}}
+@keyframes fsDotDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(70%,-25%)}}
+.fs-hero:hover .fs-dot1{animation:fsDotBounce 1.4s ease-in-out infinite}
+.fs-hero:hover .fs-dot2{animation:fsDotOrbit 3s ease-in-out 0.15s infinite}
+.fs-hero:hover .fs-dot3{animation:fsDotPulse 1.8s ease-in-out 0.3s infinite}
+.fs-hero:hover .fs-dot4{animation:fsDotDrift 2.6s ease-in-out 0.1s infinite}
+.fs-dot:hover{transform:scale(1.25)}
+@media (prefers-reduced-motion: reduce){.fs-slide,.fs-label{animation:none}.fs-slide:first-child,.fs-label:first-child{opacity:1}.fs-hero:hover .fs-dot{animation:none}}
 .fs-headb{display:grid;grid-template-columns:360px minmax(0,1fr);gap:48px;align-items:end}
 .fs-list{list-style:none;margin:0;padding:0;font-family:"Donut Hole",Impact,sans-serif;font-weight:400;font-size:clamp(56px,10.3vw,148px);line-height:0.84}
 .fs-item{display:flex;justify-content:flex-end;align-items:flex-start;gap:24px;color:inherit;transition:transform 0.45s cubic-bezier(.2,.8,.2,1)}
@@ -116,9 +144,31 @@ a:hover{color:#ea3323}
       <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: clamp(64px, 9.6vw, 140px); line-height: 0.8; color: #ea3323; height: 386px"><span class="fs-line"><span class="fs-in" style="animation-delay: 0.1s">FISHING</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.25s">IS <span class="fs-bite" style="font-size: 0.42em; vertical-align: 0.95em; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px">NOT</span> FOR</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.4s">ANYBODY.</span></span></h2>
       <p class="fs-fadeup" style="animation-delay: 1s; margin: 0; max-width: 420px; font-size: 16px; line-height: 18px; color: #ffffff; text-transform: uppercase">Nach der richtigen Zielgruppe suchen ist manchmal wie Angeln. Wir wollen dir helfen, sie zu catchen.</p>
     </div>
-    <div style="position: relative; background: #c1c1c1; min-height: 420px; overflow: hidden">
-      <img class="fs-zoom" src="assets/img/lilo-clean.jpg" alt="Verpackungsdesign für Lilo" style="width: 100%; height: 100%; object-fit: cover; display: block">
-      <p class="fs-slidein" style="animation-delay: 1.3s; position: absolute; left: 60.8%; top: 73%; margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-size: clamp(16px, 2.3vw, 34px); line-height: 0.95; color: #ffffff; white-space: nowrap">PACKAGING DESIGN<br>SOCIALS <span style="font-size: 0.4em; vertical-align: 0.9em; text-decoration: underline">AND</span> PRINT DESIGN</p>
+    <div class="fs-stage">
+      <div class="fs-frame">
+        <img class="fs-slide" src="assets/img/cases/lilo-box.jpg" alt="Verpackung für den Lernturm Lilo">
+        <img class="fs-slide" src="assets/img/cases/kretan-poster.jpg" alt="Poster und Dose der Kretan Manufaktur">
+        <img class="fs-slide" src="assets/img/cases/7e-box.jpg" alt="Pizzakarton von Seven Slices">
+        <img class="fs-slide" src="assets/img/cases/csk-web.jpg" alt="Website von CSK Weinstadt auf dem Laptop">
+        <img class="fs-slide" src="assets/img/cases/onb-box.jpg" alt="Leuchtschild von ON.BARBER">
+        <img class="fs-slide" src="assets/img/cases/ab-banner.jpg" alt="Bauzaunbanner von Art Bau">
+        <img class="fs-slide" src="assets/img/cases/ryan-covers.jpg" alt="Buch „Thirst“ von Ryan Cook">
+        <img class="fs-slide" src="assets/img/cases/mf-ad1.jpg" alt="Meisterfenster-Logo auf Schwarz">
+      </div>
+      <span class="fs-dot fs-dot1" aria-hidden="true"></span>
+      <span class="fs-dot fs-dot2" aria-hidden="true"></span>
+      <span class="fs-dot fs-dot3" aria-hidden="true"></span>
+      <span class="fs-dot fs-dot4" aria-hidden="true"></span>
+      <div aria-hidden="true">
+        <p class="fs-label">LILO<small>PACKAGING · PLAKAT · STICKER</small></p>
+        <p class="fs-label">KRETAN MANUFAKTUR<small>CORPORATE DESIGN · PACKAGING</small></p>
+        <p class="fs-label">SEVEN SLICES<small>LOGO · PACKAGING · MERCH</small></p>
+        <p class="fs-label">CSK WEINSTADT<small>CORPORATE DESIGN · WEBDESIGN</small></p>
+        <p class="fs-label">ON.BARBER<small>LOGO · PACKAGING</small></p>
+        <p class="fs-label">ART BAU<small>LOGO · CORPORATE DESIGN</small></p>
+        <p class="fs-label">RYAN COOK – THIRST<small>BUCHCOVER · EDITORIAL</small></p>
+        <p class="fs-label">MEISTERFENSTER<small>LOGO · SOCIAL ADS</small></p>
+      </div>
     </div>
   </section>
 
@@ -453,7 +503,7 @@ a:hover{color:#ea3323}
     </div>
   </section>
 
-  <footer id="kontakt" style="background: #310502; padding: 64px 48px 240px">
+  <footer id="kontakt" style="background: #310502; padding: 64px 48px 64px">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px; align-items: end">
       <div>
         <h2 style="margin: 0 0 8px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">LASST UNS REDEN.</h2>
@@ -466,6 +516,10 @@ a:hover{color:#ea3323}
         <a href="mailto:hello@rubenmostad.com" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 64px; border: 1px solid #ea3323; border-radius: 999px; color: #ffffff; font-size: 18px; line-height: 20px">Projekt starten</a>
       </div>
     </div>
+    <nav aria-label="Rechtliches" style="display: flex; gap: 32px; margin-top: 96px; font-size: 13px; line-height: 16px">
+      <a href="impressum.html">IMPRESSUM</a>
+      <a href="datenschutz.html">DATENSCHUTZ</a>
+    </nav>
   </footer>
 
 </div>
