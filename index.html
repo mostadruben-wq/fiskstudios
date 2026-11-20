@@ -63,21 +63,12 @@ a:hover{color:#ea3323}
 .fs-slide:nth-child(6),.fs-label:nth-child(6){animation-delay:20s}
 .fs-slide:nth-child(7),.fs-label:nth-child(7){animation-delay:24s}
 .fs-slide:nth-child(8),.fs-label:nth-child(8){animation-delay:28s}
-.fs-dot{position:absolute;z-index:2;width:9.1%;aspect-ratio:1;margin:-4.55% 0 0 -4.55%;border-radius:50%;background:#ea3323;transition:transform 0.5s cubic-bezier(.2,.8,.2,1)}
+.fs-dot{position:absolute;z-index:2;width:9.1%;aspect-ratio:1;margin:-4.55% 0 0 -4.55%;border-radius:50%;background:#ea3323}
 .fs-dot1{left:36.6%;top:11.8%}
 .fs-dot2{left:92.6%;top:10.2%}
 .fs-dot3{left:65%;top:53.2%}
 .fs-dot4{left:11.3%;top:74.9%}
-@keyframes fsDotBounce{0%,100%{transform:translateY(0) scale(1,1)}35%{transform:translateY(-55%) scale(0.95,1.05)}60%{transform:translateY(0) scale(1.12,0.88)}75%{transform:translateY(-12%) scale(1,1)}}
-@keyframes fsDotOrbit{0%,100%{transform:translate(0,0)}25%{transform:translate(-35%,30%)}50%{transform:translate(0,60%)}75%{transform:translate(35%,30%)}}
-@keyframes fsDotPulse{0%,100%{transform:scale(1)}40%{transform:scale(1.35)}70%{transform:scale(0.9)}}
-@keyframes fsDotDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(70%,-25%)}}
-.fs-hero:hover .fs-dot1{animation:fsDotBounce 1.4s ease-in-out infinite}
-.fs-hero:hover .fs-dot2{animation:fsDotOrbit 3s ease-in-out 0.15s infinite}
-.fs-hero:hover .fs-dot3{animation:fsDotPulse 1.8s ease-in-out 0.3s infinite}
-.fs-hero:hover .fs-dot4{animation:fsDotDrift 2.6s ease-in-out 0.1s infinite}
-.fs-dot:hover{transform:scale(1.25)}
-@media (prefers-reduced-motion: reduce){.fs-slide,.fs-label{animation:none}.fs-slide:first-child,.fs-label:first-child{opacity:1}.fs-hero:hover .fs-dot{animation:none}}
+@media (prefers-reduced-motion: reduce){.fs-slide,.fs-label{animation:none}.fs-slide:first-child,.fs-label:first-child{opacity:1}}
 .fs-headb{display:grid;grid-template-columns:360px minmax(0,1fr);gap:48px;align-items:end}
 .fs-list{list-style:none;margin:0;padding:0;font-family:"Donut Hole",Impact,sans-serif;font-weight:400;font-size:clamp(56px,10.3vw,148px);line-height:0.84}
 .fs-item{display:flex;justify-content:flex-end;align-items:flex-start;gap:24px;color:inherit;transition:transform 0.45s cubic-bezier(.2,.8,.2,1)}
@@ -99,7 +90,7 @@ a:hover{color:#ea3323}
 .fs-info{position:absolute;left:0;bottom:0;width:100%;max-width:520px;font-size:14px;line-height:18px;color:#ffffff;text-align:left;opacity:0;transform:translateY(8px);transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none}
 .fs-tag:hover .fs-info,.fs-tag:focus .fs-info{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.fs-info{transition:none;transform:none}}
-.fs-school{position:fixed;inset:0;z-index:100;overflow:hidden;pointer-events:none}
+.fs-school{position:absolute !important;inset:0;z-index:5 !important;overflow:hidden;pointer-events:none}
 .fs-swim{position:absolute;left:0;top:0;will-change:transform}
 .fs-dart{display:block;pointer-events:auto;cursor:default}
 .fs-bob{display:block;animation:fsBob 6.5s ease-in-out infinite}
@@ -117,7 +108,7 @@ a:hover{color:#ea3323}
 .fs-swim2 .fs-body{width:250px}
 .fs-swim3{top:58%;animation:fsSwimL 40s cubic-bezier(.45,.05,.55,.95) -22s infinite}
 .fs-swim3 .fs-body{width:190px}
-.fs-swim4{top:80%;animation:fsSwimR 66s cubic-bezier(.45,.05,.55,.95) -12s infinite}
+.fs-swim4{top:68%;animation:fsSwimR 66s cubic-bezier(.45,.05,.55,.95) -12s infinite}
 .fs-swim4 .fs-body{width:300px}
 .fs-swim2 .fs-bob{animation-delay:-2.1s}
 .fs-swim3 .fs-bob{animation-delay:-4s}
@@ -125,6 +116,42 @@ a:hover{color:#ea3323}
 .fs-swim2 .fs-sl{animation-duration:1.35s}
 .fs-swim3 .fs-sl{animation-duration:0.95s}
 .fs-swim4 .fs-sl{animation-duration:1.6s}
+.fs-nib,.fs-crumb{position:absolute !important}
+.fs-nib{z-index:6 !important}
+.fs-crumb{z-index:7 !important}
+.fs-nib{position:absolute;left:0;top:0;z-index:6;pointer-events:none;animation:fsNib 14s infinite}
+.fs-nib .fs-body{width:170px}
+.fs-nib .fs-sl{animation-duration:0.8s}
+@keyframes fsNib{
+0%{transform:translate(1500px,320px) rotate(0deg);animation-timing-function:cubic-bezier(.35,0,.65,1)}
+18%{transform:translate(820px,170px) rotate(5deg);animation-timing-function:cubic-bezier(.3,0,.3,1)}
+34%{transform:translate(312px,40px) rotate(2deg);animation-timing-function:cubic-bezier(.6,0,.9,.5)}
+37%{transform:translate(268px,35px) rotate(-4deg);animation-timing-function:cubic-bezier(.2,.6,.4,1)}
+40%{transform:translate(304px,40px) rotate(0deg);animation-timing-function:cubic-bezier(.6,0,.9,.5)}
+43%{transform:translate(266px,32px) rotate(-5deg);animation-timing-function:cubic-bezier(.2,.6,.4,1)}
+46%{transform:translate(304px,42px) rotate(0deg);animation-timing-function:cubic-bezier(.6,0,.9,.5)}
+49%{transform:translate(265px,37px) rotate(-3deg);animation-timing-function:cubic-bezier(.2,.6,.4,1)}
+54%{transform:translate(318px,46px) rotate(2deg);animation-timing-function:cubic-bezier(.45,0,.55,1)}
+72%{transform:translate(-280px,150px) rotate(-7deg)}
+100%{transform:translate(-280px,150px) rotate(-7deg)}}
+.fs-logo{position:relative;display:block;animation:fsLogoBite 14s infinite}
+@keyframes fsLogoBite{0%,36.8%,38.6%,42.8%,44.6%,48.8%,50.6%,100%{transform:none}37.3%{transform:translate(-3px,1px) rotate(-1.4deg)}43.3%{transform:translate(-3px,-1px) rotate(-1.6deg)}49.3%{transform:translate(-2px,1px) rotate(-1.2deg)}}
+.fs-mark{position:absolute;border-radius:50%;background:#232325 url(assets/img/grain.png) repeat;background-size:200px 200px;opacity:0}
+.fs-mark1{width:19px;height:19px;left:227px;top:-1px;animation:fsMark1 14s infinite}
+.fs-mark2{width:16px;height:16px;left:230px;top:13px;animation:fsMark2 14s infinite}
+.fs-mark3{width:20px;height:20px;left:226px;top:24px;animation:fsMark3 14s infinite}
+@keyframes fsMark1{0%,37%{opacity:0}37.4%,88%{opacity:1}97%,100%{opacity:0}}
+@keyframes fsMark2{0%,43%{opacity:0}43.4%,88%{opacity:1}97%,100%{opacity:0}}
+@keyframes fsMark3{0%,49%{opacity:0}49.4%,88%{opacity:1}97%,100%{opacity:0}}
+.fs-crumb{position:absolute;width:5px;height:5px;background:#ea3323;opacity:0;left:282px;z-index:7;pointer-events:none}
+.fs-crumb1{top:50px;animation:fsCrumb1 14s infinite}
+.fs-crumb2{top:62px;animation:fsCrumb2 14s infinite}
+.fs-crumb3{top:72px;width:4px;height:4px;animation:fsCrumb3 14s infinite}
+.fs-crumb4{top:58px;width:3px;height:3px;animation:fsCrumb2 14s -0.25s infinite}
+@keyframes fsCrumb1{0%,37%{opacity:0;transform:none}37.4%{opacity:1;transform:none}46%{opacity:0;transform:translate(-18px,90px) rotate(160deg)}100%{opacity:0}}
+@keyframes fsCrumb2{0%,43%{opacity:0;transform:none}43.4%{opacity:1;transform:none}52%{opacity:0;transform:translate(10px,100px) rotate(-140deg)}100%{opacity:0}}
+@keyframes fsCrumb3{0%,49%{opacity:0;transform:none}49.4%{opacity:1;transform:none}58%{opacity:0;transform:translate(-8px,80px) rotate(200deg)}100%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.fs-nib,.fs-logo,.fs-mark,.fs-crumb{animation:none}.fs-nib{display:none}}
 @media (max-width:860px){.fs-swim .fs-body{width:130px !important}}
 @media (prefers-reduced-motion: reduce){.fs-swim,.fs-bob,.fs-sl{animation:none}.fs-swim1{transform:translateX(60vw)}.fs-swim2{transform:translateX(8vw)}.fs-swim3{transform:translateX(40vw)}.fs-swim4{transform:translateX(70vw)}.fs-dart{transform:none !important;transition:none !important}}
 @media (max-width:860px){
@@ -144,17 +171,17 @@ a:hover{color:#ea3323}
 <body>
 <div style="width: 100%; background: #232325; color: #c1c1c1; font-family: 'Sk Modernist Mono', 'DM Mono', ui-monospace, monospace">
 
+  <header class="fs-grain" style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
     <div class="fs-school" aria-hidden="true">
-      <div class="fs-swim fs-swim1 fs-left"><span class="fs-dart"><span class="fs-bob"><span class="fs-body"><img class="fs-fish" src="assets/img/fish/fish1.png" alt=""><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 92.857% 0 0%); --a: 0.0; animation-delay: -0.0s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 85.714% 0 6.743%); --a: 0.12; animation-delay: -0.075s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 78.571% 0 13.886%); --a: 0.35; animation-delay: -0.15s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 71.429% 0 21.029%); --a: 0.67; animation-delay: -0.225s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 64.286% 0 28.171%); --a: 1.06; animation-delay: -0.3s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 57.143% 0 35.314%); --a: 1.52; animation-delay: -0.375s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 50.0% 0 42.457%); --a: 2.03; animation-delay: -0.45s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 42.857% 0 49.6%); --a: 2.6; animation-delay: -0.525s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 35.714% 0 56.743%); --a: 3.22; animation-delay: -0.6s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 28.571% 0 63.886%); --a: 3.89; animation-delay: -0.675s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 21.429% 0 71.029%); --a: 4.6; animation-delay: -0.75s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 14.286% 0 78.171%); --a: 5.36; animation-delay: -0.825s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 7.143% 0 85.314%); --a: 6.16; animation-delay: -0.9s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 0.0% 0 92.457%); --a: 7.0; animation-delay: -0.975s"></span></span></span></div>
       <div class="fs-swim fs-swim2 fs-right"><span class="fs-dart"><span class="fs-bob"><span class="fs-body"><img class="fs-fish" src="assets/img/fish/fish2.png" alt=""><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 92.857% 0 0%); --a: 0.0; animation-delay: -0.0s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 85.714% 0 6.743%); --a: 0.12; animation-delay: -0.075s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 78.571% 0 13.886%); --a: 0.35; animation-delay: -0.15s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 71.429% 0 21.029%); --a: 0.67; animation-delay: -0.225s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 64.286% 0 28.171%); --a: 1.06; animation-delay: -0.3s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 57.143% 0 35.314%); --a: 1.52; animation-delay: -0.375s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 50.0% 0 42.457%); --a: 2.03; animation-delay: -0.45s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 42.857% 0 49.6%); --a: 2.6; animation-delay: -0.525s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 35.714% 0 56.743%); --a: 3.22; animation-delay: -0.6s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 28.571% 0 63.886%); --a: 3.89; animation-delay: -0.675s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 21.429% 0 71.029%); --a: 4.6; animation-delay: -0.75s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 14.286% 0 78.171%); --a: 5.36; animation-delay: -0.825s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 7.143% 0 85.314%); --a: 6.16; animation-delay: -0.9s"><img class="fs-sl" src="assets/img/fish/fish2.png" alt="" style="clip-path: inset(0 0.0% 0 92.457%); --a: 7.0; animation-delay: -0.975s"></span></span></span></div>
       <div class="fs-swim fs-swim3 fs-left"><span class="fs-dart"><span class="fs-bob"><span class="fs-body"><img class="fs-fish" src="assets/img/fish/fish3.png" alt=""><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 92.857% 0 0%); --a: 0.0; animation-delay: -0.0s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 85.714% 0 6.743%); --a: 0.12; animation-delay: -0.075s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 78.571% 0 13.886%); --a: 0.35; animation-delay: -0.15s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 71.429% 0 21.029%); --a: 0.67; animation-delay: -0.225s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 64.286% 0 28.171%); --a: 1.06; animation-delay: -0.3s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 57.143% 0 35.314%); --a: 1.52; animation-delay: -0.375s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 50.0% 0 42.457%); --a: 2.03; animation-delay: -0.45s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 42.857% 0 49.6%); --a: 2.6; animation-delay: -0.525s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 35.714% 0 56.743%); --a: 3.22; animation-delay: -0.6s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 28.571% 0 63.886%); --a: 3.89; animation-delay: -0.675s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 21.429% 0 71.029%); --a: 4.6; animation-delay: -0.75s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 14.286% 0 78.171%); --a: 5.36; animation-delay: -0.825s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 7.143% 0 85.314%); --a: 6.16; animation-delay: -0.9s"><img class="fs-sl" src="assets/img/fish/fish3.png" alt="" style="clip-path: inset(0 0.0% 0 92.457%); --a: 7.0; animation-delay: -0.975s"></span></span></span></div>
       <div class="fs-swim fs-swim4 fs-right"><span class="fs-dart"><span class="fs-bob"><span class="fs-body"><img class="fs-fish" src="assets/img/fish/fish4.png" alt=""><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 92.857% 0 0%); --a: 0.0; animation-delay: -0.0s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 85.714% 0 6.743%); --a: 0.12; animation-delay: -0.075s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 78.571% 0 13.886%); --a: 0.35; animation-delay: -0.15s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 71.429% 0 21.029%); --a: 0.67; animation-delay: -0.225s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 64.286% 0 28.171%); --a: 1.06; animation-delay: -0.3s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 57.143% 0 35.314%); --a: 1.52; animation-delay: -0.375s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 50.0% 0 42.457%); --a: 2.03; animation-delay: -0.45s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 42.857% 0 49.6%); --a: 2.6; animation-delay: -0.525s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 35.714% 0 56.743%); --a: 3.22; animation-delay: -0.6s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 28.571% 0 63.886%); --a: 3.89; animation-delay: -0.675s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 21.429% 0 71.029%); --a: 4.6; animation-delay: -0.75s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 14.286% 0 78.171%); --a: 5.36; animation-delay: -0.825s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 7.143% 0 85.314%); --a: 6.16; animation-delay: -0.9s"><img class="fs-sl" src="assets/img/fish/fish4.png" alt="" style="clip-path: inset(0 0.0% 0 92.457%); --a: 7.0; animation-delay: -0.975s"></span></span></span></div>
     </div>
-
-  <header class="fs-grain" style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
+    <div class="fs-nib" aria-hidden="true"><span class="fs-bob"><span class="fs-body"><img class="fs-fish" src="assets/img/fish/fish1.png" alt=""><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 92.857% 0 0%); --a: 0.0; animation-delay: -0.0s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 85.714% 0 6.743%); --a: 0.12; animation-delay: -0.075s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 78.571% 0 13.886%); --a: 0.35; animation-delay: -0.15s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 71.429% 0 21.029%); --a: 0.67; animation-delay: -0.225s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 64.286% 0 28.171%); --a: 1.06; animation-delay: -0.3s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 57.143% 0 35.314%); --a: 1.52; animation-delay: -0.375s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 50.0% 0 42.457%); --a: 2.03; animation-delay: -0.45s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 42.857% 0 49.6%); --a: 2.6; animation-delay: -0.525s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 35.714% 0 56.743%); --a: 3.22; animation-delay: -0.6s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 28.571% 0 63.886%); --a: 3.89; animation-delay: -0.675s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 21.429% 0 71.029%); --a: 4.6; animation-delay: -0.75s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 14.286% 0 78.171%); --a: 5.36; animation-delay: -0.825s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 7.143% 0 85.314%); --a: 6.16; animation-delay: -0.9s"><img class="fs-sl" src="assets/img/fish/fish1.png" alt="" style="clip-path: inset(0 0.0% 0 92.457%); --a: 7.0; animation-delay: -0.975s"></span></span></div>
+    <span class="fs-crumb fs-crumb1" aria-hidden="true"></span><span class="fs-crumb fs-crumb2" aria-hidden="true"></span><span class="fs-crumb fs-crumb3" aria-hidden="true"></span><span class="fs-crumb fs-crumb4" aria-hidden="true"></span>
     <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap">
       <a href="#start" style="display: flex; flex-direction: column; gap: 4px" aria-label="Fiskstudios Startseite">
-        <img src="assets/img/wortmarke.svg" alt="Fiskstudios" style="width: 236px; height: auto; display: block">
+        <span class="fs-logo"><img src="assets/img/wortmarke.svg" alt="Fiskstudios" style="width: 236px; height: auto; display: block"><span class="fs-mark fs-mark1"></span><span class="fs-mark fs-mark2"></span><span class="fs-mark fs-mark3"></span></span>
         <span style="font-family: 'Donut Hole', Impact, sans-serif; font-size: 15px; line-height: 1; color: #ffffff; letter-spacing: 0.01em">WIR LIEBEN DESIGN UND VIDEO</span>
       </a>
       <nav class="fs-nav-links" aria-label="Hauptnavigation" style="display: flex; gap: 56px; padding-top: 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.02em">
