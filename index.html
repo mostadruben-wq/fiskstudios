@@ -13,18 +13,35 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:#232325}
 *{box-sizing:border-box}
-img{max-width:100%}
 a{color:#ffffff;text-decoration:none}
 a:hover{color:#ea3323}
-a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
 .fs-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .fs-service{display:grid;grid-template-columns:48px minmax(0,1fr) minmax(0,1fr);column-gap:32px;align-items:start}
 @keyframes fsUp{from{transform:translateY(110%)}to{transform:none}}
 @keyframes fsBite{0%,100%{transform:none}20%{transform:translateY(0.12em) rotate(-8deg)}40%{transform:translateY(-0.06em) rotate(6deg)}60%{transform:translateY(0.08em) rotate(-4deg)}80%{transform:none}}
-@keyframes fsPop{0%{transform:scale(1)}40%{transform:scale(1.6)}100%{transform:scale(1)}}
+@keyframes fsPop{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
 @keyframes fsFadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes fsZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
 @keyframes fsSlideIn{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+@keyframes fsMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.fs-grain{position:relative}
+.fs-grain::after{content:"";position:absolute;inset:0;background-image:url(assets/img/grain.png);background-repeat:repeat;background-size:200px 200px;pointer-events:none;z-index:0}
+.fs-grain > *{position:relative;z-index:1}
+#arbeiten{overflow:hidden}
+.fs-cases{display:flex;width:max-content;margin:0 -48px;animation:fsMarquee 240s linear infinite}
+.fs-cases:hover{animation-play-state:paused}
+.fs-case{flex:none;width:440px;margin-right:32px;display:flex;flex-direction:column;gap:20px}
+.fs-case-media{aspect-ratio:4/3;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.fs-case-media img{transition:transform 0.6s cubic-bezier(.2,.8,.2,1)}
+.fs-case:hover .fs-case-media img{transform:scale(1.04)}
+.fs-case-name{transition:color 0.3s ease}
+.fs-case:hover .fs-case-name{color:#ea3323 !important}
+.fs-slide-text{transition:color 0.3s ease}
+.fs-case:hover .fs-slide-text{color:#ffffff !important}
+.fs-marquee{overflow:hidden}
+.fs-track{display:flex;width:max-content;animation:fsMarquee 30s linear infinite}
+.fs-track img{height:108px;width:auto;display:block;flex:none}
+.fs-marquee:hover .fs-track{animation-play-state:paused}
 .fs-line{display:block;overflow:hidden;padding-top:0.12em;margin-top:-0.12em}
 .fs-in{display:inline-block}
 .fs-bite{display:inline-block;transform-origin:50% 0}
@@ -35,32 +52,40 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
 .fs-hero:hover .fs-slidein{animation:fsSlideIn 0.8s cubic-bezier(.2,.8,.2,1) both}
 .fs-headb{display:grid;grid-template-columns:360px minmax(0,1fr);gap:48px;align-items:end}
 .fs-list{list-style:none;margin:0;padding:0;font-family:"Donut Hole",Impact,sans-serif;font-weight:400;font-size:clamp(56px,10.3vw,148px);line-height:0.84}
-.fs-item{display:flex;justify-content:flex-end;align-items:flex-start;gap:16px;color:inherit}
-.fs-num{display:inline-block;font-family:"Sk Modernist Mono",ui-monospace,monospace;font-size:18px;line-height:1;color:#ea3323;padding-top:0.5em}
-.fs-svc{display:inline-block;color:transparent;-webkit-text-stroke:1.5px #c1c1c1;transition:color 0.35s ease,-webkit-text-stroke-color 0.35s ease,transform 0.45s cubic-bezier(.2,.8,.2,1)}
-.fs-item:hover .fs-svc,.fs-item:focus-visible .fs-svc{color:#ea3323;-webkit-text-stroke-color:#ea3323;transform:translateX(-24px)}
+.fs-item{display:flex;justify-content:flex-end;align-items:flex-start;gap:24px;color:inherit;transition:transform 0.45s cubic-bezier(.2,.8,.2,1)}
+.fs-num{display:inline-block;font-family:"Sk Modernist Mono","DM Mono",monospace;font-size:18px;line-height:1;color:#ea3323;padding-top:0.5em}
+.fs-svc{display:inline-block;color:transparent;-webkit-text-stroke:1.5px #c1c1c1;transition:color 0.35s ease,-webkit-text-stroke-color 0.35s ease}
+.fs-item:hover,.fs-item:focus-visible{transform:translateX(-24px)}
+.fs-item:hover .fs-svc,.fs-item:focus-visible .fs-svc{color:#ea3323;-webkit-text-stroke-color:#ea3323}
 .fs-item:hover .fs-num,.fs-item:focus-visible .fs-num{animation:fsPop 0.5s ease both}
 .fs-item:hover{color:inherit}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.fs-hero:hover .fs-in,.fs-hero:hover .fs-bite,.fs-hero:hover .fs-fadeup,.fs-hero:hover .fs-zoom,.fs-hero:hover .fs-slidein,.fs-item:hover .fs-num{animation:none}.fs-svc{transition:color 0.35s ease}.fs-item:hover .fs-svc{transform:none}}
+@media (prefers-reduced-motion: reduce){
+  .fs-hero:hover .fs-in,.fs-hero:hover .fs-bite,.fs-hero:hover .fs-fadeup,.fs-hero:hover .fs-zoom,.fs-hero:hover .fs-slidein,.fs-item:hover .fs-num{animation:none}
+  .fs-item{transition:none}.fs-item:hover,.fs-item:focus-visible{transform:none}
+  .fs-track,.fs-cases{animation:none}#arbeiten{overflow-x:auto}
+  .fs-case-media img{transition:none}.fs-case:hover .fs-case-media img{transform:none}
+}
 @media (max-width:860px){
   .fs-grid2{grid-template-columns:minmax(0,1fr)}
   .fs-service{grid-template-columns:40px minmax(0,1fr)}
   .fs-service .fs-tags{grid-column:2}
   .fs-nav-links{display:none !important}
   .fs-headb{grid-template-columns:minmax(0,1fr)}
+  .fs-case{width:300px}
   .fs-csk{flex-direction:column !important}
   .fs-csk img{width:100% !important;height:360px !important}
+  #start{grid-template-columns:minmax(0,1fr) !important}
+  #start h2{height:auto !important}
 }
 </style>
 </head>
 <body>
-<div style="width: 100%; background: #232325; color: #c1c1c1; font-family: 'Sk Modernist Mono', ui-monospace, monospace">
+<div style="width: 100%; background: #232325; color: #c1c1c1; font-family: 'Sk Modernist Mono', 'DM Mono', ui-monospace, monospace">
 
-  <!-- Header -->
-  <header style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
+  <header class="fs-grain" style="position: relative; min-height: 830px; padding: 40px 48px 48px; overflow: hidden; background: #232325; display: flex; flex-direction: column; justify-content: space-between; gap: 64px">
     <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap">
       <a href="#start" style="display: flex; flex-direction: column; gap: 4px" aria-label="Fiskstudios Startseite">
-        <img src="assets/img/wortmarke.svg" alt="Fiskstudios" width="236" height="41" style="width: 236px; height: auto; display: block">
+        <img src="assets/img/wortmarke.svg" alt="Fiskstudios" style="width: 236px; height: auto; display: block">
         <span style="font-family: 'Donut Hole', Impact, sans-serif; font-size: 15px; line-height: 1; color: #ffffff; letter-spacing: 0.01em">WIR LIEBEN DESIGN UND VIDEO</span>
       </a>
       <nav class="fs-nav-links" aria-label="Hauptnavigation" style="display: flex; gap: 56px; padding-top: 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.02em">
@@ -69,7 +94,7 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
         <a href="#kontakt">KONTAKT</a>
       </nav>
       <a href="#kontakt" style="display: inline-flex; align-items: center; gap: 12px; min-height: 28px; margin-top: 4px; padding: 4px 16px; border-radius: 999px; background: #c1c1c1; color: #232325; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 500">LET'S WORK
-        <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="#ea3323" stroke-width="1.5"><path d="M2 10 L10 2 M4 2 H10 V8"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="#ea3323" stroke-width="1.5"><path d="M2 10 L10 2 M4 2 H10 V8"></path></svg>
       </a>
     </div>
     <div class="fs-headb">
@@ -86,42 +111,270 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
     </div>
   </header>
 
-  <!-- Hero -->
   <section id="start" class="fs-grid2 fs-hero" style="grid-template-columns: 41fr 59fr; min-height: 707px; background: #310502">
     <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 48px; padding: 64px 48px 48px">
-      <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: clamp(64px, 9.6vw, 140px); line-height: 0.8; color: #ea3323"><span class="fs-line"><span class="fs-in" style="animation-delay: 0.1s">FISHING</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.25s">IS <span class="fs-bite" style="font-size: 0.42em; vertical-align: 0.95em; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px">NOT</span> FOR</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.4s">ANYBODY.</span></span></h2>
+      <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: clamp(64px, 9.6vw, 140px); line-height: 0.8; color: #ea3323; height: 386px"><span class="fs-line"><span class="fs-in" style="animation-delay: 0.1s">FISHING</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.25s">IS <span class="fs-bite" style="font-size: 0.42em; vertical-align: 0.95em; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px">NOT</span> FOR</span></span><span class="fs-line"><span class="fs-in" style="animation-delay: 0.4s">ANYBODY.</span></span></h2>
       <p class="fs-fadeup" style="animation-delay: 1s; margin: 0; max-width: 420px; font-size: 16px; line-height: 18px; color: #ffffff; text-transform: uppercase">Nach der richtigen Zielgruppe suchen ist manchmal wie Angeln. Wir wollen dir helfen, sie zu catchen.</p>
     </div>
     <div style="position: relative; background: #c1c1c1; min-height: 420px; overflow: hidden">
-      <img class="fs-zoom" src="assets/img/lilo-clean.jpg" alt="Verpackungsdesign für Lilo" width="1444" height="1208" style="width: 100%; height: 100%; object-fit: cover; display: block">
+      <img class="fs-zoom" src="assets/img/lilo-clean.jpg" alt="Verpackungsdesign für Lilo" style="width: 100%; height: 100%; object-fit: cover; display: block">
       <p class="fs-slidein" style="animation-delay: 1.3s; position: absolute; left: 60.8%; top: 73%; margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-size: clamp(16px, 2.3vw, 34px); line-height: 0.95; color: #ffffff; white-space: nowrap">PACKAGING DESIGN<br>SOCIALS <span style="font-size: 0.4em; vertical-align: 0.9em; text-decoration: underline">AND</span> PRINT DESIGN</p>
     </div>
   </section>
 
-  <!-- Projekt CSK -->
-  <section id="arbeiten" class="fs-csk" style="display: flex; align-items: center; min-height: 742px; background: #0d0f0e">
-    <img src="assets/img/csk.jpg" alt="CSK – Fußballspieler bei Nacht mit dem CSK-Wappen" width="1620" height="1267" loading="lazy" style="width: 66%; height: 742px; object-fit: cover; display: block">
+  <section class="fs-csk" style="display: flex; align-items: center; min-height: 742px; background: #0d0f0e">
+    <img src="assets/img/csk.jpg" alt="CSK – Fußballspieler bei Nacht mit dem CSK-Wappen" style="width: 66%; height: 742px; object-fit: cover; display: block">
     <p style="margin: 0; padding: 48px; font-family: 'Donut Hole', Impact, sans-serif; font-size: clamp(22px, 2.2vw, 30px); line-height: 1; color: #ea3323">CORPORATE DESIGN &amp; WEBDESIGN<br>PHOTOGRAPHY &amp; SOCIALS</p>
   </section>
 
-  <!-- Kunden -->
-  <section aria-label="Kunden" style="background: #d3d3d3">
-    <img src="assets/img/kunden.jpg" alt="Kunden: CSK, Doppio, Grooming Studios, Lorinser, Tennis Club Weinstadt, wildly, HOLZ." width="2460" height="216" loading="lazy" style="width: 100%; height: auto; display: block">
+  <section id="arbeiten" class="fs-grain" style="padding: 96px 48px 112px; display: flex; flex-direction: column; gap: 56px">
+    <div>
+      <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">ARBEITEN</h2>
+      <p style="margin: 8px 0 0; font-size: 18px; line-height: 20px; color: #c1c1c1">AUSGEWÄHLTE PROJEKTE</p>
+    </div>
+    <div class="fs-cases">
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #294176"><img src="assets/img/cases/doppio-white.png" alt="Doppio Logo" style="width: 58%; height: auto; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">01</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">DOPPIO</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Café und Pizza aus einer Hand: Für den Caterer Doppio haben wir einen Schriftzug mit Schwung entwickelt, getragen von zwei Blautönen.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · FARBWELT</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/kretan-poster.jpg" alt="Poster-Mockup Kretan Manufaktur" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">02</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">KRETAN MANUFAKTUR</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Grafische Muster und ruhiges Grün: ein Auftritt von der Dose bis zur Website.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">CORPORATE DESIGN · PACKAGING · WEBDESIGN</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/csk-web.jpg" alt="Website von CSK Weinstadt auf dem Laptop" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">03</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">CSK WEINSTADT</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Ein Fußballclub aus dem Remstal, ein Auftritt mit Kante – vom Wappen über die Matchday-Plakate bis zur Website.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">CORPORATE DESIGN · WEBDESIGN · PHOTOGRAPHY</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #f4f2ee"><img src="assets/img/cases/gs-logo.png" alt="Grooming Studios Logo" style="width: 46%; height: auto; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">04</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">GROOMING STUDIOS</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Für einen Luxus-Barbershop in Kernen haben wir den Laden selbst zum Logo gemacht: feine Linien, viel Ruhe, ein Zeichen mit Haltung.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · ILLUSTRATION</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/onb-box.jpg" alt="Verpackung ON.BARBER" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">05</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">ON.BARBER</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Die Submarke von 1o1 Barbers: eine klare Wortmarke und schwarze Verpackung – reduziert auf das, was zählt.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · PACKAGING</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/ab-banner.jpg" alt="Bauzaunbanner Art Bau" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">06</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">ART BAU</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Trockenbau mit dem gewissen Etwas: ein Zeichen aus Haus und Boden, das auf dem Bauzaun genauso funktioniert wie auf dem Shirt.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · CORPORATE DESIGN · MERCH</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/7e-box.jpg" alt="Pizzakarton Seven Slices" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">07</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">SEVEN SLICES</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Der Caterer der Zukunft denkt Pizza anders – und genau so sieht die Marke aus: laut, rot und überall, vom Karton bis zum Becher.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · PACKAGING · MERCH</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/lilo-box.jpg" alt="Verpackung Lilo Lernturm" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">08</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">LILO</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Ein Lernturm, eine Linie: Verpackung, Plakat und Sticker aus einer Hand.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">PACKAGING · PLAKAT · STICKER</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/ryan-covers.jpg" alt="Buchmockup Thirst" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">09</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">RYAN COOK – THIRST</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Cover und Innenleben für das Buch „Thirst“ von Fr. Ryan Cook.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">BUCHCOVER · EDITORIAL</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/mf-ad1.jpg" alt="Meisterfenster-Logo auf Schwarz" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">10</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">MEISTERFENSTER</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Logo und Social Ads für Fenster, Haustüren und Sonnenschutz.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · SOCIAL ADS</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #294176"><img src="assets/img/cases/doppio-white.png" alt="" style="width: 58%; height: auto; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">01</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">DOPPIO</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Café und Pizza aus einer Hand: Für den Caterer Doppio haben wir einen Schriftzug mit Schwung entwickelt, getragen von zwei Blautönen.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · FARBWELT</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/kretan-poster.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">02</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">KRETAN MANUFAKTUR</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Grafische Muster und ruhiges Grün: ein Auftritt von der Dose bis zur Website.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">CORPORATE DESIGN · PACKAGING · WEBDESIGN</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/csk-web.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">03</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">CSK WEINSTADT</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Ein Fußballclub aus dem Remstal, ein Auftritt mit Kante – vom Wappen über die Matchday-Plakate bis zur Website.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">CORPORATE DESIGN · WEBDESIGN · PHOTOGRAPHY</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #f4f2ee"><img src="assets/img/cases/gs-logo.png" alt="" style="width: 46%; height: auto; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">04</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">GROOMING STUDIOS</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Für einen Luxus-Barbershop in Kernen haben wir den Laden selbst zum Logo gemacht: feine Linien, viel Ruhe, ein Zeichen mit Haltung.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · ILLUSTRATION</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/onb-box.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">05</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">ON.BARBER</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Die Submarke von 1o1 Barbers: eine klare Wortmarke und schwarze Verpackung – reduziert auf das, was zählt.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · PACKAGING</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/ab-banner.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">06</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">ART BAU</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Trockenbau mit dem gewissen Etwas: ein Zeichen aus Haus und Boden, das auf dem Bauzaun genauso funktioniert wie auf dem Shirt.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · CORPORATE DESIGN · MERCH</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/7e-box.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">07</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">SEVEN SLICES</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Der Caterer der Zukunft denkt Pizza anders – und genau so sieht die Marke aus: laut, rot und überall, vom Karton bis zum Becher.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · PACKAGING · MERCH</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/lilo-box.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">08</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">LILO</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Ein Lernturm, eine Linie: Verpackung, Plakat und Sticker aus einer Hand.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">PACKAGING · PLAKAT · STICKER</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/ryan-covers.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">09</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">RYAN COOK – THIRST</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Cover und Innenleben für das Buch „Thirst“ von Fr. Ryan Cook.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">BUCHCOVER · EDITORIAL</p>
+          </div>
+        </div>
+      </article>
+      <article class="fs-case" aria-hidden="true">
+        <div class="fs-case-media" style="background: #141414"><img src="assets/img/cases/mf-ad1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="font-size: 13px; line-height: 16px; color: #ea3323">10</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 class="fs-case-name" style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #c1c1c1">MEISTERFENSTER</h3>
+            <p class="fs-slide-text" style="margin: 0; font-size: 16px; line-height: 20px; color: #c1c1c1">Logo und Social Ads für Fenster, Haustüren und Sonnenschutz.</p>
+            <p style="margin: 0; font-size: 13px; line-height: 16px; color: #c1c1c1">LOGO · SOCIAL ADS</p>
+          </div>
+        </div>
+      </article>
+    </div>
   </section>
 
-  <!-- Die Fische -->
+  <section aria-label="Kunden" class="fs-marquee fs-grain" style="background: #d3d3d3">
+    <div class="fs-track">
+      <img src="assets/img/kunden.jpg" alt="Kunden: CSK, Doppio, Grooming Studios, Lorinser, Tennis Club Weinstadt, wildly, HOLZ.">
+      <img src="assets/img/kunden.jpg" alt="" aria-hidden="true">
+    </div>
+  </section>
+
   <section style="background: #310502; padding: 64px 48px 32px; border-bottom-left-radius: 160px">
     <h2 style="margin: 0 0 40px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">DIE FISCHE</h2>
     <div class="fs-grid2" style="gap: 48px">
       <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
-        <img src="assets/img/team-ruben.jpg" alt="Ruben mit einem gefangenen Fisch am Wasser" width="592" height="592" loading="lazy" style="width: 346px; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
+        <img src="assets/img/team-ruben.jpg" alt="Ruben mit einem gefangenen Fisch am Wasser" loading="lazy" style="width: 346px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
         <div style="display: flex; flex-direction: column; gap: 8px">
           <h3 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95; color: #ffffff">ART DIRECTION</h3>
           <p style="margin: 0; font-size: 13px; line-height: 16px; color: #ea3323">GRAFIKDESIGN &amp; WEBDESIGN</p>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
-        <img src="assets/img/team-luca.jpg" alt="Luca mit einem großen Karpfen" width="592" height="592" loading="lazy" style="width: 346px; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 24px; display: block">
+        <img src="assets/img/team-luca.jpg" alt="Luca mit einem großen Karpfen" loading="lazy" style="width: 346px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px 24px 24px 160px; display: block">
         <div style="display: flex; flex-direction: column; gap: 8px">
           <h3 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95; color: #ffffff">DIRECTOR OF<br>PHOTOGRAPHY</h3>
           <p style="margin: 0; font-size: 13px; line-height: 16px; color: #ea3323">PHOTOGRAPHY &amp; VIDEOGRAPHY</p>
@@ -130,8 +383,7 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
     </div>
   </section>
 
-  <!-- Über uns -->
-  <section class="fs-grid2" style="gap: 48px; padding: 64px 48px 32px">
+  <section class="fs-grid2 fs-grain" style="gap: 48px; padding: 64px 48px 32px">
     <div>
       <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">ÜBER RUBEN</h3>
       <p style="margin: 0; max-width: 560px; font-size: 18px; line-height: 20px; color: #c1c1c1">Hej, what up?<br>Ich bin Ruben und ich bin leidenschaftlich gern Grafiker. Corporate Designs, die aus der Masse hervorstechen, sind meine liebsten. Ich würde vermutlich sagen, „Reasoned Simplicity“ ist genau meine Ecke. Wir freuen uns schon drauf, zusammen mit euch geile Projekte zu schmeißen!</p>
@@ -142,8 +394,7 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" style="padding: 96px 48px 112px; display: flex; flex-direction: column; gap: 56px">
+  <section id="services" class="fs-grain" style="padding: 96px 48px 112px; display: flex; flex-direction: column; gap: 56px">
     <div>
       <h2 style="margin: 0; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #ea3323">SERVICES</h2>
       <p style="margin: 8px 0 0; font-size: 18px; line-height: 20px; color: #c1c1c1">WAS WIR TUN</p>
@@ -192,7 +443,7 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
       <span style="font-size: 18px; line-height: 40px; color: #ea3323">04</span>
       <div>
         <h3 style="margin: 0 0 16px; font-family: 'Donut Hole', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #c1c1c1">PHOTOGRAPHY</h3>
-        <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Editorial, Kampagnen, Porträts, Produktfotografie. Bilder, die Geschichten erzählen.</p>
+        <p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 20px; color: #c1c1c1">Editorial, Kampagnen, Portraits, Produktfotografie. Bilder, die Geschichten erzählen.</p>
       </div>
       <div class="fs-tags" style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 56px">
         <span style="min-width: 136px; padding: 8px 12px; border: 1px solid #ea3323; color: #ea3323; font-size: 18px; line-height: 20px; text-align: center">EDITORIAL</span>
@@ -202,7 +453,6 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
     </div>
   </section>
 
-  <!-- Kontakt -->
   <footer id="kontakt" style="background: #310502; padding: 64px 48px 240px">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px; align-items: end">
       <div>
@@ -213,7 +463,7 @@ a:focus-visible{outline:2px solid #ea3323;outline-offset:4px}
         FISKSTUDIOS KOLLEKTIV<br><br>Waiblinger Straße 19,<br>70372 Stuttgart
       </address>
       <div>
-        <a href="mailto:ruben@fiskstudios.de" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 64px; border: 1px solid #ea3323; border-radius: 999px; color: #ffffff; font-size: 18px; line-height: 20px">Projekt starten</a>
+        <a href="mailto:hello@rubenmostad.com" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 64px; border: 1px solid #ea3323; border-radius: 999px; color: #ffffff; font-size: 18px; line-height: 20px">Projekt starten</a>
       </div>
     </div>
   </footer>
